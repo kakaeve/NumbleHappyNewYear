@@ -24,6 +24,7 @@ module.exports = (env) => {
       }),
       new webpack.DefinePlugin({
         UNSPLASH_ACCESSS_KEY: JSON.stringify(process.env.UNSPLASH_ACCESSS_KEY),
+        END_POINT: JSON.stringify(process.env.END_POINT),
       }),
     ],
   };

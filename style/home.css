@@ -12,4 +12,52 @@
 }
 :root .hidden {
   display: hidden;
+}
+:root #mainFeedSection {
+  display: flex;
+}
+:root #mainFeedSection #postsList.card-view {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+:root #mainFeedSection #postsList.card-view .post-item {
+  display: flex;
+  width: 30%;
+  height: 15%;
+  border: 1px solid black;
+  justify-content: space-between;
+  align-items: center;
+}
+:root #mainFeedSection #postsList.card-view .post-item a {
+  display: flex;
+}
+:root #mainFeedSection #postsList.card-view .post-item a img {
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+:root #mainFeedSection #postsList.card-view .post-item a .post-container {
+  font-size: 2rem;
+}
+:root #mainFeedSection #postsList.card-view .post-item a .post-container .post-title {
+  height: 20%;
+  display: flex;
+}
+:root #mainFeedSection #postsList.card-view .post-item a .post-container .post-content {
+  display: flex;
+}
+:root #mainFeedSection #postsList.list-view {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+:root #mainFeedSection #postsList.list-view .post-item {
+  display: flex;
+  width: 100%;
+  border: 1px solid black;
+}
+:root .new-post-btn {
+  display: flex;
 }/*# sourceMappingURL=home.css.map */
