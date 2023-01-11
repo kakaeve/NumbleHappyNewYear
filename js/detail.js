@@ -1,0 +1,88 @@
+const endPoint = "http://43.201.103.199";
+
+function makeDetail(res) {
+  const { title, content, image, postId } = res.data.data.post;
+  const postTitle = document.createElement("div");
+  const postContent = document.createElement("div");
+  const postImage = document.createElement("img");
+  const detailSection = document.createElement("section");
+  const postSection = document.createElement("section");
+  const commentSection = document.createElement("section");
+  const commentList = document.createElement("ul");
+  const backButton = document.createElement("a");
+  const editButton = document.createElement("a");
+  const removeButton = document.createElement("a");
+
+  const buttonContainer = document.createElement("div");
+
+  const comments = res.data.data.comments;
+  const commentInputForm = document.createElement("section");
+  const commentInput = document.createElement("input");
+  const commentSubmitButton = document.createElement("button");
+
+  for (let comment of comments) {
+    const { content, commentId } = comment;
+    const li = document.createElement("li");
+    const commentContent = document.createElement("div");
+    const commentDeleteButton = document.createElement("button");
+    commentDeleteButton.innerText = "삭제";
+    console.log(`${endPoint}/comment/${commentId}`);
+    commentDeleteButton.addEventListener("click", async () => {
+      await axios
+        .delete(`${endPoint}/comment/${commentId}`)
+        .then((res) => console.log(res))
+        .catch((err) => console.log(err));
+      window.location.reload();
+    });
+
+    commentContent.innerText = content;
+    li.append(commentContent, commentDeleteButton);
+    commentList.append(li);
+  }
+
+  commentSubmitButton.innerText = "제출";
+  commentSubmitButton.addEventListener("click", async () => {
+    const sendData = { content: commentInput.value };
+    console.log(sendData);
+    await axios
+      .post(`${endPoint}/comment/${postId}`, sendData)
+      .then((res) => console.log(res))
+      .catch((err) => console.log(err));
+    window.location.reload();
+  });
+
+  commentInputForm.append(commentInput, commentSubmitButton);
+  commentSection.append(commentList, commentInputForm);
+
+  backButton.href = "#";
+  backButton.innerText = "뒤로가기";
+
+  editButton.href = `#edit/${postId}`;
+  editButton.innerText = "수정하기";
+
+  removeButton.href = "#remove";
+  removeButton.innerText = "삭제하기";
+  removeButton.addEventListener("click", async (e) => {
+    e.preventDefault();
+    await axios
+      .delete(`${endPoint}/post/${postId}`)
+      .then((res) => console.log(res))
+      .catch((err) => console.log(err));
+    window.location.href = "#";
+  });
+
+  buttonContainer.append(editButton, removeButton);
+
+  postTitle.innerText = title;
+  postContent.innerText = content;
+  postImage.src = image;
+
+  postSection.append(postTitle, postContent, postImage, buttonContainer);
+
+  detailSection.append(backButton, postSection, commentSection);
+  document.querySelector("body").appendChild(detailSection);
+
+  commentSection;
+}
+
+export { makeDetail };

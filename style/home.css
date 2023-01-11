@@ -1,0 +1,15 @@
+:root body,
+:root ul,
+:root li {
+  padding: 0;
+  text-decoration: none;
+}
+:root h1 {
+  color: red;
+}
+:root .test {
+  color: blue;
+}
+:root .hidden {
+  display: hidden;
+}/*# sourceMappingURL=home.css.map */
