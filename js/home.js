@@ -2,10 +2,10 @@
 
 async function makeMainFeed(res) {
   console.log(res);
+  //console.log(END_POINT);
 
   const mainFeedSection = document.createElement("section");
   const postListUl = document.createElement("ul");
-  const newPostButton = document.createElement("a");
   const viewToggleButton = document.createElement("button");
 
   const postList = res.data.data.posts;
@@ -22,11 +22,14 @@ async function makeMainFeed(res) {
     const title = document.createElement("div");
     const content = document.createElement("div");
     const a = document.createElement("a");
+    const postBox = document.createElement("div");
+    const imageBox = document.createElement("div");
 
     li.classList.add("post-item");
     title.classList.add("post-title");
     content.classList.add("post-content");
     postContainer.classList.add("post-container");
+    imageBox.classList.add("img-box");
 
     title.innerText = post.title;
     content.innerText = post.content;
@@ -34,16 +37,14 @@ async function makeMainFeed(res) {
 
     a.href = `#/post/${post.postId}`;
     postContainer.append(title, content);
-    a.append(img, postContainer);
+    imageBox.append(img);
+    a.append(imageBox, postContainer);
     li.appendChild(a);
     li.id = `${post.postId}`;
     postListUl.appendChild(li);
   }
-  newPostButton.href = `#new`;
-  newPostButton.innerText = "인사하기";
-  newPostButton.classList.add("new-post-btn");
   mainFeedSection.appendChild(postListUl);
-  document.querySelector("body").append(mainFeedSection, newPostButton);
+  return mainFeedSection;
 }
 
 export { makeMainFeed };

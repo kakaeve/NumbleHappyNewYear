@@ -4,6 +4,9 @@
   padding: 0;
   text-decoration: none;
 }
+:root a {
+  text-decoration: none;
+}
 :root h1 {
   color: red;
 }
@@ -11,49 +14,126 @@
   color: blue;
 }
 :root .hidden {
-  display: hidden;
+  display: none;
 }
-:root #mainFeedSection {
-  display: flex;
+:root body {
+  font-family: "Roboto", "Noto Sans KR", sans-serif;
 }
-:root #mainFeedSection #postsList.card-view {
+:root #navBarContainer {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
   display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-wrap: wrap;
-}
-:root #mainFeedSection #postsList.card-view .post-item {
-  display: flex;
-  width: 30%;
-  height: 15%;
-  border: 1px solid black;
   justify-content: space-between;
   align-items: center;
+  color: #a8dba8;
+  border-bottom: 1px solid #a8dba8;
+  padding: 5px 0;
 }
-:root #mainFeedSection #postsList.card-view .post-item a {
+:root #navBarContainer .navBarTitle {
+  display: flex;
+  font-size: 2rem;
+  font-weight: bold;
+  color: #a8dba8;
+}
+:root #navBarContainer .button {
+  display: flex;
+  border: 1px solid #cff09e;
+  border-radius: 10%;
+  align-items: center;
+  background-color: #a8dba8;
+  color: white;
+  font-weight: 500;
+  padding: 0.5rem;
+}
+:root #navBarContainer #newPostButton {
+  cursor: pointer;
+}
+:root #navBarContainer #backButton {
+  cursor: pointer;
+}
+:root #mainContainer {
+  margin-top: 45px;
+}
+:root #mainContainer #mainFeedSection {
   display: flex;
 }
-:root #mainFeedSection #postsList.card-view .post-item a img {
+:root #mainContainer #mainFeedSection #postsList.card-view {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+:root #mainContainer #mainFeedSection #postsList.card-view .post-item {
+  display: flex;
+  width: 30%;
+  height: 30vh;
+  border: 5px solid #79bd9a;
+  border-radius: 5%;
+  justify-content: space-around;
+  align-items: center;
+  box-shadow: 0 4px 8px 0 rgba(121, 189, 154, 0.2);
+  margin-bottom: 10px;
+}
+:root #mainContainer #mainFeedSection #postsList.card-view .post-item a {
+  padding: 5%;
+  color: #3b8686;
+  text-decoration: none;
+  display: flex;
+  width: 100%;
   height: 100%;
-  -o-object-fit: cover;
-     object-fit: cover;
 }
-:root #mainFeedSection #postsList.card-view .post-item a .post-container {
+:root #mainContainer #mainFeedSection #postsList.card-view .post-item a .img-box {
+  flex-grow: 1;
+  display: flex;
+  width: 100%;
+  height: 90%;
+}
+:root #mainContainer #mainFeedSection #postsList.card-view .post-item a .img-box img {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  border-radius: 5%;
+  -o-object-fit: fill;
+     object-fit: fill;
+  margin: 10px 0;
+}
+:root #mainContainer #mainFeedSection #postsList.card-view .post-item a .post-container {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-grow: 1;
+  flex-wrap: wrap;
+  margin-left: 3%;
+}
+:root #mainContainer #mainFeedSection #postsList.card-view .post-item a .post-container .post-title {
+  text-align: center;
   font-size: 2rem;
-}
-:root #mainFeedSection #postsList.card-view .post-item a .post-container .post-title {
+  width: 100%;
   height: 20%;
   display: flex;
+  font-weight: 700;
+  align-items: center;
+  justify-content: center;
+  border-bottom: 1px solid #79bd9a;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
 }
-:root #mainFeedSection #postsList.card-view .post-item a .post-container .post-content {
+:root #mainContainer #mainFeedSection #postsList.card-view .post-item a .post-container .post-content {
+  font-size: 1rem;
   display: flex;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
 }
-:root #mainFeedSection #postsList.list-view {
+:root #mainContainer #mainFeedSection #postsList.list-view {
   display: flex;
   align-items: center;
   justify-content: center;
 }
-:root #mainFeedSection #postsList.list-view .post-item {
+:root #mainContainer #mainFeedSection #postsList.list-view .post-item {
   display: flex;
   width: 100%;
   border: 1px solid black;

@@ -1,8 +1,8 @@
 const endPoint = "http://43.201.103.199";
-// const dotenv = require("dotenv");
-// dotenv.config();
+
 function newPost() {
-  const form = document.createElement("section");
+  const newPostSection = document.createElement("section");
+  const form = document.createElement("div");
   const button = document.createElement("a");
   const formTitle = document.createElement("input");
   const formContent = document.createElement("textarea");
@@ -23,7 +23,6 @@ function newPost() {
     });
 
     randomImageUrl = res.data.urls.small;
-    //console.log(res.data.urls);
     console.log("random image : ", randomImageUrl);
     const sendData = {
       title: formTitle.value,
@@ -56,8 +55,10 @@ function newPost() {
       .catch((err) => console.log(err));
     window.location.href = `#/post/${targetId}`;
   });
-
-  document.querySelector("body").append(backButton, form, randomImageButton);
+  console.log("안녕하세요.");
+  newPostSection.append(form, randomImageButton);
+  console.log("qwe: ", newPostSection);
+  return newPostSection;
 }
 
 export { newPost };

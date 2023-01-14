@@ -13,6 +13,8 @@ function makeDetail(res) {
   const editButton = document.createElement("a");
   const removeButton = document.createElement("a");
 
+  const postIdSave = document.createElement("div");
+
   const buttonContainer = document.createElement("div");
 
   const comments = res.data.data.comments;
@@ -26,7 +28,7 @@ function makeDetail(res) {
     const commentContent = document.createElement("div");
     const commentDeleteButton = document.createElement("button");
     commentDeleteButton.innerText = "삭제";
-    console.log(`${endPoint}/comment/${commentId}`);
+    //console.log(`${endPoint}/comment/${commentId}`);
     commentDeleteButton.addEventListener("click", async () => {
       await axios
         .delete(`${endPoint}/comment/${commentId}`)
@@ -62,6 +64,9 @@ function makeDetail(res) {
 
   removeButton.href = "#remove";
   removeButton.innerText = "삭제하기";
+  postIdSave.innerText = postId;
+  postIdSave.classList.add("hidden");
+  //postIdSave.style.display = "none";
   removeButton.addEventListener("click", async (e) => {
     e.preventDefault();
     await axios
@@ -74,15 +79,22 @@ function makeDetail(res) {
   buttonContainer.append(editButton, removeButton);
 
   postTitle.innerText = title;
+  postTitle.id = "postTitle";
   postContent.innerText = content;
+  postContent.id = "postContent";
   postImage.src = image;
+  postImage.id = "postImage";
 
-  postSection.append(postTitle, postContent, postImage, buttonContainer);
+  postSection.append(
+    postIdSave,
+    postTitle,
+    postContent,
+    postImage,
+    buttonContainer
+  );
 
   detailSection.append(backButton, postSection, commentSection);
-  document.querySelector("body").appendChild(detailSection);
-
-  commentSection;
+  return detailSection;
 }
 
 export { makeDetail };
