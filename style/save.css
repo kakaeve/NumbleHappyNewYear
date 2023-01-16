@@ -1,0 +1,154 @@
+@charset "UTF-8";
+:root body,
+:root ul,
+:root li {
+  padding: 0;
+  text-decoration: none;
+}
+:root a {
+  text-decoration: none;
+}
+:root h1 {
+  color: red;
+}
+:root .test {
+  color: blue;
+}
+:root .hidden {
+  display: none;
+}
+:root body {
+  font-family: "Roboto", "Noto Sans KR", sans-serif;
+}
+:root #navBarContainer {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #d1d2f9;
+  color: white;
+  border-bottom: 1px solid #d1d2f9;
+  padding: 5px 10px;
+}
+:root #navBarContainer .navBarTitle {
+  display: flex;
+  font-size: 2rem;
+  font-weight: bold;
+  color: white;
+}
+:root #navBarContainer .button {
+  display: flex;
+  border: 1px solid white;
+  border-radius: 10%;
+  align-items: center;
+  background-color: #d1d2f9;
+  color: white;
+  font-weight: 500;
+  padding: 0.5rem;
+}
+:root #navBarContainer #newPostButton {
+  cursor: pointer;
+}
+:root #navBarContainer #backButton {
+  cursor: pointer;
+}
+:root #mainContainer {
+  margin-top: 45px;
+}
+:root #mainContainer #mainFeedSection {
+  display: flex;
+}
+:root #mainContainer #mainFeedSection #postsList.card-view {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  width: 100%;
+}
+:root #mainContainer #mainFeedSection #postsList.card-view .post-item {
+  display: flex;
+  width: 30%;
+  height: 30vh;
+  border: 5px solid #a3bcf9;
+  border-radius: 5%;
+  justify-content: space-around;
+  align-items: center;
+  box-shadow: 0 4px 8px 0 rgba(121, 189, 154, 0.2);
+  margin-bottom: 20px;
+}
+:root #mainContainer #mainFeedSection #postsList.card-view .post-item a {
+  padding: 5%;
+  color: #7796cb;
+  text-decoration: none;
+  display: flex;
+  height: inherit;
+  border: 1px solid black;
+  flex-grow: 2;
+}
+:root #mainContainer #mainFeedSection #postsList.card-view .post-item a .img-box {
+  margin: 5% 0;
+  width: 40%;
+  display: flex;
+  height: 90%;
+}
+:root #mainContainer #mainFeedSection #postsList.card-view .post-item a .img-box img {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  border-radius: 5%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+:root #mainContainer #mainFeedSection #postsList.card-view .post-item a .post-container {
+  flex-grow: 3;
+  height: inherit;
+  display: flex;
+  margin-left: 3%;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  overflow: auto;
+}
+:root #mainContainer #mainFeedSection #postsList.card-view .post-item a .post-container .post-title {
+  text-align: center;
+  font-size: 2rem;
+  width: inherit;
+  display: flex;
+  font-weight: 700;
+  align-items: center;
+  justify-content: center;
+  border-bottom: 1px solid #a3bcf9;
+  flex-grow: 1;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+:root #mainContainer #mainFeedSection #postsList.card-view .post-item a .post-container .post-content {
+  font-size: 1rem;
+  width: 100%;
+  height: inherit;
+  display: inline-block;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  /* 여러 줄 자르기 추가 스타일 */
+  white-space: normal;
+}
+:root #mainContainer #mainFeedSection #postsList.card-view .post-item a .post-container::-webkit-scrollbar {
+  display: hidden;
+}
+:root #mainContainer #mainFeedSection #postsList.list-view {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+:root #mainContainer #mainFeedSection #postsList.list-view .post-item {
+  display: flex;
+  width: 100%;
+  border: 1px solid black;
+}
+:root .new-post-btn {
+  display: flex;
+}/*# sourceMappingURL=save.css.map */

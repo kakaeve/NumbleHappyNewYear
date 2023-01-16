@@ -1,25 +1,22 @@
-$outlineColor: #cff09e;
-$navBarColor: #a8dba8;
+$outlineColor: #c9cad9;
+$navBarColor: #d1d2f9;
 //$postColor: #69c6f5;
-$postColor: #79bd9a;
-$textColor: #3b8686;
+$postColor: #a3bcf9;
+$textColor: #7796cb;
+$gradiantColot: #576490;
 //#8FFFEF
-
-// $outlineColor: #879fff;
-// $navBarColor: #74a2e0;
-// //$postColor: #69c6f5;
-// $postColor: #879fff;
-// $textColor: #75d6e0;
-// //#8FFFEF
 
 :root {
   body,
   ul,
   li {
     padding: 0;
+    margin: 0;
     text-decoration: none;
   }
-
+  li {
+    list-style: none;
+  }
   a {
     text-decoration: none;
   }
@@ -38,138 +35,111 @@ $textColor: #3b8686;
   body {
     font-family: "Roboto", "Noto Sans KR", sans-serif;
   }
-
   #navBarContainer {
     position: fixed;
+    width: 100%;
     top: 0;
     left: 0;
-    width: 100%;
     display: flex;
+    height: 5vh;
     justify-content: space-between;
     align-items: center;
-    color: $navBarColor;
-    border-bottom: 1px solid $navBarColor;
-    padding: 5px 0;
-    .navBarTitle {
-      display: flex;
-      font-size: 2rem;
-      font-weight: bold;
 
-      color: $navBarColor;
-    }
-
+    background-color: $navBarColor;
     .button {
       display: flex;
-      border: 1px solid $outlineColor;
-      border-radius: 10%;
-      align-items: center;
-      background-color: $navBarColor;
+      font-weight: 700;
       color: white;
-      font-weight: 500;
-      padding: 0.5rem;
-    }
-
-    #newPostButton {
-      cursor: pointer;
     }
     #backButton {
       cursor: pointer;
     }
-  }
-
-  #mainContainer {
-    margin-top: 45px;
-    #mainFeedSection {
+    .navBarTitle {
       display: flex;
-      #postsList.card-view {
+      color: white;
+      font-size: 2rem;
+      font-weight: 700;
+    }
+    #newPostButton {
+    }
+  }
+  #mainContainer {
+    margin-top: 5vh;
+    background: linear-gradient(to bottom right, $postColor, $gradiantColot);
+    #mainFeedSection {
+      #postList {
         display: flex;
-        align-items: flex-start;
         justify-content: space-around;
         flex-wrap: wrap;
-
         .post-item {
           display: flex;
+
           width: 30%;
-          //height: 30vh;
           height: 30vh;
-          border: 5px solid $postColor;
-          border-radius: 5%;
-          justify-content: space-around;
+          margin-bottom: 20px;
           align-items: center;
-          box-shadow: 0 4px 8px 0 rgba(121, 189, 154, 0.2);
-          margin-bottom: 10px;
-          a {
-            padding: 5%;
-            color: $textColor;
-            text-decoration: none;
+          justify-content: center;
+          .postAtag {
+            width: 96%;
+            height: 96%;
             display: flex;
-            width: 100%;
-            height: 100%;
+            justify-content: center;
+            align-items: center;
+            padding: 2%;
+            border-radius: 5%;
+
+            background-color: rgba(255, 255, 255, 0.7);
+
             .img-box {
-              flex-grow: 1;
               display: flex;
-              width: 100%;
+              width: 40%;
               height: 90%;
               img {
-                display: flex;
                 width: 100%;
                 height: 100%;
+                //border: 2px solid green;
+                object-fit: cover;
                 border-radius: 5%;
-                object-fit: fill;
-                margin: 10px 0;
               }
             }
-
             .post-container {
-              width: 100%;
-              height: 100%;
               display: flex;
-              flex-grow: 1;
-              flex-wrap: wrap;
-              margin-left: 3%;
+              flex-grow: 3;
+              flex-wrap: nowrap;
+              width: 60%;
+              height: 90%;
+              padding: 1%;
+              color: $textColor;
+              min-width: 0;
+              flex: 1 1 auto;
+
               .post-title {
-                text-align: center;
-                font-size: 2rem;
-                width: 100%;
-                height: 20%;
                 display: flex;
-
-                font-weight: 700;
                 align-items: center;
-                justify-content: center;
+                font-size: 2rem;
+                height: 20%;
+                font-weight: 700;
                 border-bottom: 1px solid $postColor;
+                text-align: center;
+                justify-content: center;
                 overflow: hidden;
-                white-space: nowrap;
                 text-overflow: ellipsis;
+                white-space: nowrap;
               }
-
               .post-content {
+                width: 100%;
                 font-size: 1rem;
+                height: 80%;
                 display: flex;
+                justify-content: flex-start;
                 overflow: hidden;
-                white-space: nowrap;
                 text-overflow: ellipsis;
+                white-space: nowrap;
               }
             }
           }
         }
       }
-
-      #postsList.list-view {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-
-        .post-item {
-          display: flex;
-          width: 100%;
-          border: 1px solid black;
-        }
-      }
     }
-  }
-
-  .new-post-btn {
-    display: flex;
   }
 }

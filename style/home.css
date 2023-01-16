@@ -2,7 +2,11 @@
 :root ul,
 :root li {
   padding: 0;
+  margin: 0;
   text-decoration: none;
+}
+:root li {
+  list-style: none;
 }
 :root a {
   text-decoration: none;
@@ -21,123 +25,99 @@
 }
 :root #navBarContainer {
   position: fixed;
+  width: 100%;
   top: 0;
   left: 0;
-  width: 100%;
   display: flex;
+  height: 5vh;
   justify-content: space-between;
   align-items: center;
-  color: #a8dba8;
-  border-bottom: 1px solid #a8dba8;
-  padding: 5px 0;
-}
-:root #navBarContainer .navBarTitle {
-  display: flex;
-  font-size: 2rem;
-  font-weight: bold;
-  color: #a8dba8;
+  background-color: #d1d2f9;
 }
 :root #navBarContainer .button {
   display: flex;
-  border: 1px solid #cff09e;
-  border-radius: 10%;
-  align-items: center;
-  background-color: #a8dba8;
+  font-weight: 700;
   color: white;
-  font-weight: 500;
-  padding: 0.5rem;
-}
-:root #navBarContainer #newPostButton {
-  cursor: pointer;
 }
 :root #navBarContainer #backButton {
   cursor: pointer;
 }
+:root #navBarContainer .navBarTitle {
+  display: flex;
+  color: white;
+  font-size: 2rem;
+  font-weight: 700;
+}
 :root #mainContainer {
-  margin-top: 45px;
+  margin-top: 5vh;
+  background: linear-gradient(to bottom right, #a3bcf9, #576490);
 }
-:root #mainContainer #mainFeedSection {
+:root #mainContainer #mainFeedSection #postList {
   display: flex;
-}
-:root #mainContainer #mainFeedSection #postsList.card-view {
-  display: flex;
-  align-items: flex-start;
   justify-content: space-around;
   flex-wrap: wrap;
 }
-:root #mainContainer #mainFeedSection #postsList.card-view .post-item {
+:root #mainContainer #mainFeedSection #postList .post-item {
   display: flex;
   width: 30%;
   height: 30vh;
-  border: 5px solid #79bd9a;
-  border-radius: 5%;
-  justify-content: space-around;
+  margin-bottom: 20px;
   align-items: center;
-  box-shadow: 0 4px 8px 0 rgba(121, 189, 154, 0.2);
-  margin-bottom: 10px;
+  justify-content: center;
 }
-:root #mainContainer #mainFeedSection #postsList.card-view .post-item a {
-  padding: 5%;
-  color: #3b8686;
-  text-decoration: none;
+:root #mainContainer #mainFeedSection #postList .post-item .postAtag {
+  width: 96%;
+  height: 96%;
   display: flex;
-  width: 100%;
-  height: 100%;
+  justify-content: center;
+  align-items: center;
+  padding: 2%;
+  border-radius: 5%;
+  background-color: rgba(255, 255, 255, 0.7);
 }
-:root #mainContainer #mainFeedSection #postsList.card-view .post-item a .img-box {
-  flex-grow: 1;
+:root #mainContainer #mainFeedSection #postList .post-item .postAtag .img-box {
   display: flex;
-  width: 100%;
+  width: 40%;
   height: 90%;
 }
-:root #mainContainer #mainFeedSection #postsList.card-view .post-item a .img-box img {
-  display: flex;
+:root #mainContainer #mainFeedSection #postList .post-item .postAtag .img-box img {
   width: 100%;
   height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
   border-radius: 5%;
-  -o-object-fit: fill;
-     object-fit: fill;
-  margin: 10px 0;
 }
-:root #mainContainer #mainFeedSection #postsList.card-view .post-item a .post-container {
-  width: 100%;
-  height: 100%;
+:root #mainContainer #mainFeedSection #postList .post-item .postAtag .post-container {
   display: flex;
-  flex-grow: 1;
-  flex-wrap: wrap;
-  margin-left: 3%;
+  flex-grow: 3;
+  flex-wrap: nowrap;
+  width: 60%;
+  height: 90%;
+  padding: 1%;
+  color: #7796cb;
+  min-width: 0;
+  flex: 1 1 auto;
 }
-:root #mainContainer #mainFeedSection #postsList.card-view .post-item a .post-container .post-title {
-  text-align: center;
+:root #mainContainer #mainFeedSection #postList .post-item .postAtag .post-container .post-title {
+  display: flex;
+  align-items: center;
   font-size: 2rem;
-  width: 100%;
   height: 20%;
-  display: flex;
   font-weight: 700;
-  align-items: center;
+  border-bottom: 1px solid #a3bcf9;
+  text-align: center;
   justify-content: center;
-  border-bottom: 1px solid #79bd9a;
   overflow: hidden;
-  white-space: nowrap;
   text-overflow: ellipsis;
-}
-:root #mainContainer #mainFeedSection #postsList.card-view .post-item a .post-container .post-content {
-  font-size: 1rem;
-  display: flex;
-  overflow: hidden;
   white-space: nowrap;
-  text-overflow: ellipsis;
 }
-:root #mainContainer #mainFeedSection #postsList.list-view {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-:root #mainContainer #mainFeedSection #postsList.list-view .post-item {
-  display: flex;
+:root #mainContainer #mainFeedSection #postList .post-item .postAtag .post-container .post-content {
   width: 100%;
-  border: 1px solid black;
-}
-:root .new-post-btn {
+  font-size: 1rem;
+  height: 80%;
   display: flex;
+  justify-content: flex-start;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }/*# sourceMappingURL=home.css.map */
