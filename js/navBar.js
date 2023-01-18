@@ -17,11 +17,6 @@ function navbar() {
     } else {
     }
   });
-  // if (window.location.href.includes("edit")) {
-  //   backButton.href = "#post";
-  // } else {
-  //   backButton.href = "#";
-  // }
 
   backButton.id = "backButton";
   backButton.classList.add("button");

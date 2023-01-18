@@ -1,10 +1,17 @@
-$outlineColor: #c9cad9;
-$navBarColor: #d1d2f9;
+$outlineColor: #0077b6;
+$navBarColor: #caf0f8;
 //$postColor: #69c6f5;
-$postColor: #a3bcf9;
-$textColor: #7796cb;
-$gradiantColot: #576490;
+$postColor: #00b4d8;
+$textColor: #03045e;
+$gradiantColor1: #90e0ef;
+$gradiantColor2: #03045e;
 //#8FFFEF
+// $outlineColor: #c9cad9;
+// $navBarColor: #d1d2f9;
+// //$postColor: #69c6f5;
+// $postColor: #a3bcf9;
+// $textColor: #7796cb;
+// $gradiantColot: #576490;
 
 :root {
   body,
@@ -41,7 +48,7 @@ $gradiantColot: #576490;
     top: 0;
     left: 0;
     display: flex;
-    height: 5vh;
+    height: 6vh;
     justify-content: space-between;
     align-items: center;
 
@@ -50,6 +57,12 @@ $gradiantColot: #576490;
       display: flex;
       font-weight: 700;
       color: white;
+      margin: 0 10px;
+      height: 90%;
+      border: 1px solid white;
+      align-items: center;
+      border-radius: 20%;
+      padding: 0 10px;
     }
     #backButton {
       cursor: pointer;
@@ -59,13 +72,22 @@ $gradiantColot: #576490;
       color: white;
       font-size: 2rem;
       font-weight: 700;
+      justify-content: center;
+      align-items: center;
+      line-height: inherit;
     }
+
     #newPostButton {
     }
   }
   #mainContainer {
-    margin-top: 5vh;
-    background: linear-gradient(to bottom right, $postColor, $gradiantColot);
+    padding-top: 1vh;
+    margin-top: 6vh;
+    background: linear-gradient(
+      to bottom right,
+      $gradiantColor1,
+      $gradiantColor2
+    );
     #mainFeedSection {
       #postList {
         display: flex;
@@ -75,7 +97,7 @@ $gradiantColot: #576490;
           display: flex;
 
           width: 30%;
-          height: 30vh;
+          height: 40vh;
           margin-bottom: 20px;
           align-items: center;
           justify-content: center;
@@ -86,9 +108,9 @@ $gradiantColot: #576490;
             justify-content: center;
             align-items: center;
             padding: 2%;
-            border-radius: 5%;
-
-            background-color: rgba(255, 255, 255, 0.7);
+            border-radius: 10%;
+            border: 3px solid $postColor;
+            background-color: rgba(255, 255, 255, 0.6);
 
             .img-box {
               display: flex;
@@ -105,7 +127,7 @@ $gradiantColot: #576490;
             .post-container {
               display: flex;
               flex-grow: 3;
-              flex-wrap: nowrap;
+              flex-wrap: wrap;
               width: 60%;
               height: 90%;
               padding: 1%;
@@ -114,31 +136,42 @@ $gradiantColot: #576490;
               flex: 1 1 auto;
 
               .post-title {
-                display: flex;
+                display: inline-flex;
                 align-items: center;
                 font-size: 2rem;
                 height: 20%;
                 font-weight: 700;
                 border-bottom: 1px solid $postColor;
                 text-align: center;
-                justify-content: center;
-                overflow: hidden;
-                text-overflow: ellipsis;
-                white-space: nowrap;
-              }
-              .post-content {
-                width: 100%;
-                font-size: 1rem;
-                height: 80%;
-                display: flex;
                 justify-content: flex-start;
                 overflow: hidden;
                 text-overflow: ellipsis;
                 white-space: nowrap;
+                width: 100%;
+              }
+              .post-content {
+                display: flex;
+                width: 100%;
+                font-size: 1rem;
+                height: 80%;
+                //flex-basis: auto;
+                justify-content: flex-start;
+                overflow: hidden;
+                text-overflow: ellipsis;
+                white-space: wrap;
               }
             }
           }
         }
+      }
+    }
+    .post-section {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      .postTitle {
+      }
+      .postContent {
       }
     }
   }

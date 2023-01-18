@@ -7,12 +7,9 @@ function newPost() {
   const formTitle = document.createElement("input");
   const formContent = document.createElement("textarea");
   const formImage = document.createElement("img");
-  const backButton = document.createElement("a");
   const randomImageButton = document.createElement("button");
 
   let randomImageUrl = "";
-  backButton.innerText = "뒤로가기";
-  backButton.href = `#`;
   button.innerText = "등록하기";
   randomImageButton.innerText = "random 지정!";
   randomImageButton.addEventListener("click", async () => {
@@ -55,9 +52,7 @@ function newPost() {
       .catch((err) => console.log(err));
     window.location.href = `#/post/${targetId}`;
   });
-  console.log("안녕하세요.");
   newPostSection.append(form, randomImageButton);
-  console.log("qwe: ", newPostSection);
   return newPostSection;
 }
 
