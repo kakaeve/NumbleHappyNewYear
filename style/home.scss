@@ -42,7 +42,7 @@ $gradiantColor2: #03045e;
   body {
     font-family: "Roboto", "Noto Sans KR", sans-serif;
   }
-  #navBarContainer {
+  .nav-bar-container {
     position: fixed;
     width: 100%;
     top: 0;
@@ -64,10 +64,10 @@ $gradiantColor2: #03045e;
       border-radius: 20%;
       padding: 0 10px;
     }
-    #backButton {
+    .back-button {
       cursor: pointer;
     }
-    .navBarTitle {
+    .nav-bar-title {
       display: flex;
       color: white;
       font-size: 2rem;
@@ -77,10 +77,10 @@ $gradiantColor2: #03045e;
       line-height: inherit;
     }
 
-    #newPostButton {
+    .new-post-button {
     }
   }
-  #mainContainer {
+  .main-container {
     padding-top: 1vh;
     margin-top: 6vh;
     background: linear-gradient(
@@ -88,8 +88,8 @@ $gradiantColor2: #03045e;
       $gradiantColor1,
       $gradiantColor2
     );
-    #mainFeedSection {
-      #postList {
+    .main-feed-section {
+      .post-list {
         display: flex;
         justify-content: space-around;
         flex-wrap: wrap;

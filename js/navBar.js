@@ -5,29 +5,20 @@ function navbar() {
   const newPostButton = document.createElement("a");
 
   navTitle.innerText = "Happy new year";
-  navTitle.classList.add("navBarTitle");
+  navTitle.classList.add("nav-bar-title");
   navTitle.href = "#";
   backButton.innerText = "뒤로가기";
-  console.log(window.history);
-  //backButton.href = window.history.back();
   backButton.addEventListener("click", () => {
-    //window.history.back();
     window.history.back();
-    if (window.location.href.includes("edit")) {
-    } else {
-    }
   });
 
-  backButton.id = "backButton";
-  backButton.classList.add("button");
+  backButton.classList.add("button", "back-button");
 
   newPostButton.innerText = "새해인사하기";
   newPostButton.href = "#new";
-  newPostButton.id = "newPostButton";
-  navbarContainer.id = "navBarContainer";
-  newPostButton.classList.add("button");
+  newPostButton.classList.add("new-post-button", "button");
+  navbarContainer.classList.add("nav-bar-container");
   navbarContainer.append(backButton, navTitle, newPostButton);
-  console.log("qwe");
   return navbarContainer;
 }
 

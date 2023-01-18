@@ -23,7 +23,7 @@
 :root body {
   font-family: "Roboto", "Noto Sans KR", sans-serif;
 }
-:root #navBarContainer {
+:root .nav-bar-container {
   position: fixed;
   width: 100%;
   top: 0;
@@ -34,7 +34,7 @@
   align-items: center;
   background-color: #caf0f8;
 }
-:root #navBarContainer .button {
+:root .nav-bar-container .button {
   display: flex;
   font-weight: 700;
   color: white;
@@ -45,10 +45,10 @@
   border-radius: 20%;
   padding: 0 10px;
 }
-:root #navBarContainer #backButton {
+:root .nav-bar-container .back-button {
   cursor: pointer;
 }
-:root #navBarContainer .navBarTitle {
+:root .nav-bar-container .nav-bar-title {
   display: flex;
   color: white;
   font-size: 2rem;
@@ -57,17 +57,17 @@
   align-items: center;
   line-height: inherit;
 }
-:root #mainContainer {
+:root .main-container {
   padding-top: 1vh;
   margin-top: 6vh;
   background: linear-gradient(to bottom right, #90e0ef, #03045e);
 }
-:root #mainContainer #mainFeedSection #postList {
+:root .main-container .main-feed-section .post-list {
   display: flex;
   justify-content: space-around;
   flex-wrap: wrap;
 }
-:root #mainContainer #mainFeedSection #postList .post-item {
+:root .main-container .main-feed-section .post-list .post-item {
   display: flex;
   width: 30%;
   height: 40vh;
@@ -75,7 +75,7 @@
   align-items: center;
   justify-content: center;
 }
-:root #mainContainer #mainFeedSection #postList .post-item .postAtag {
+:root .main-container .main-feed-section .post-list .post-item .postAtag {
   width: 96%;
   height: 96%;
   display: flex;
@@ -86,19 +86,19 @@
   border: 3px solid #00b4d8;
   background-color: rgba(255, 255, 255, 0.6);
 }
-:root #mainContainer #mainFeedSection #postList .post-item .postAtag .img-box {
+:root .main-container .main-feed-section .post-list .post-item .postAtag .img-box {
   display: flex;
   width: 40%;
   height: 90%;
 }
-:root #mainContainer #mainFeedSection #postList .post-item .postAtag .img-box img {
+:root .main-container .main-feed-section .post-list .post-item .postAtag .img-box img {
   width: 100%;
   height: 100%;
   -o-object-fit: cover;
      object-fit: cover;
   border-radius: 5%;
 }
-:root #mainContainer #mainFeedSection #postList .post-item .postAtag .post-container {
+:root .main-container .main-feed-section .post-list .post-item .postAtag .post-container {
   display: flex;
   flex-grow: 3;
   flex-wrap: wrap;
@@ -109,7 +109,7 @@
   min-width: 0;
   flex: 1 1 auto;
 }
-:root #mainContainer #mainFeedSection #postList .post-item .postAtag .post-container .post-title {
+:root .main-container .main-feed-section .post-list .post-item .postAtag .post-container .post-title {
   display: inline-flex;
   align-items: center;
   font-size: 2rem;
@@ -123,7 +123,7 @@
   white-space: nowrap;
   width: 100%;
 }
-:root #mainContainer #mainFeedSection #postList .post-item .postAtag .post-container .post-content {
+:root .main-container .main-feed-section .post-list .post-item .postAtag .post-container .post-content {
   display: flex;
   width: 100%;
   font-size: 1rem;
@@ -133,7 +133,7 @@
   text-overflow: ellipsis;
   white-space: wrap;
 }
-:root #mainContainer .post-section {
+:root .main-container .post-section {
   display: flex;
   align-items: center;
   justify-content: center;

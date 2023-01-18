@@ -10,16 +10,13 @@ const render = async () => {
   try {
     const hash = window.location.hash.replace("/#", "");
     const body = document.querySelector("body");
-    console.log(hash);
-    console.log(body.lastChild);
     body.lastChild.remove();
-    if (!body.querySelector("#navBarContainer")) {
-      console.log(navbar());
+    if (!body.querySelector(".nav-bar-container")) {
       body.append(navbar());
     }
 
     const mainContainer = document.createElement("section");
-    mainContainer.id = "mainContainer";
+    mainContainer.classList.add("main-container");
     body.append(mainContainer);
     if (hash === "") {
       const res = await axios(`${endPoint}/posts`);

@@ -10,8 +10,8 @@ async function makeMainFeed(res) {
 
   const postList = res.data.data.posts;
 
-  mainFeedSection.id = "mainFeedSection";
-  postListUl.id = "postList";
+  mainFeedSection.classList.add("main-feed-section");
+  postListUl.classList.add("post-list");
   postListUl.classList.add("card-view");
   //postListUl.classList.add("list-view");
 
@@ -22,7 +22,6 @@ async function makeMainFeed(res) {
     const title = document.createElement("div");
     const content = document.createElement("div");
     const a = document.createElement("a");
-    const postBox = document.createElement("div");
     const imageBox = document.createElement("div");
 
     li.classList.add("post-item");
