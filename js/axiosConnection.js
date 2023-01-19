@@ -1,9 +1,4 @@
-//const axios = require("axios");
-
-//import axios from "axios";
-
-//const { default: axios } = require("axios");
-const END_POINT = "http://43.201.103.199";
+const axios = require("axios");
 
 async function axiosConnection(method, url, data) {
   return await axios({
@@ -18,7 +13,7 @@ async function randomImage() {
     method: "get",
     url: "https://api.unsplash.com/photos/random",
     params: {
-      client_id: "AuK9RkFBKsBrqWlY59_A7YApuJkzgxnm5USdMzq5Ang",
+      client_id: UNSPLASH_ACCESSS_KEY,
     },
   });
 }

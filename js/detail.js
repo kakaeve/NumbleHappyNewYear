@@ -88,11 +88,9 @@ function makeDetail(res) {
   postIdSave.classList.add("hidden");
   removeButton.addEventListener("click", async (e) => {
     e.preventDefault();
-    const comment = await axios
-      .delete(`${endPoint}/post/${postId}`)
+    await axiosConnection("delete", `/post/${postId}`)
       .then((res) => console.log(res))
-      .catch((err) => console.log(err));
-
+      .catch((e) => console.log(e));
     window.location.href = "#";
   });
 
