@@ -3,8 +3,7 @@ import { editPost } from "./editPost.js";
 import { makeMainFeed } from "./home.js";
 import { navbar } from "./navBar.js";
 import { newPost } from "./newPost.js";
-
-const endPoint = "http://43.201.103.199";
+import { axiosConnection } from "./axiosConnection.js";
 
 const render = async () => {
   try {
@@ -19,17 +18,14 @@ const render = async () => {
     mainContainer.classList.add("main-container");
     body.append(mainContainer);
     if (hash === "") {
-      const res = await axios(`${endPoint}/posts`);
+      const res = await axiosConnection("get", "/posts");
       const mainFeedSection = await makeMainFeed(res);
       mainContainer.append(mainFeedSection);
     } else if (hash.includes("post/")) {
-      console.log(`${endPoint}${hash.substring(1)}`);
-      const res = await axios(`${endPoint}${hash.substring(1)}`);
-      console.log(res);
+      const res = await axiosConnection("get", hash.substring(1));
       mainContainer.append(makeDetail(res));
     } else if (hash.includes("edit")) {
-      const res = await axios(`${endPoint}/post${hash.substring(5)}`);
-      console.log(res);
+      const res = await axiosConnection("get", `/post${hash.substring(5)}`);
       mainContainer.append(await editPost(res));
     } else if (hash.includes("new")) {
       mainContainer.append(newPost());

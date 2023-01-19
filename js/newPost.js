@@ -1,4 +1,4 @@
-const endPoint = "http://43.201.103.199";
+import { axiosConnection, randomImage } from "./axiosConnection.js";
 
 function newPost() {
   const newPostSection = document.createElement("section");
@@ -6,31 +6,45 @@ function newPost() {
   const button = document.createElement("a");
   const formTitle = document.createElement("input");
   const formContent = document.createElement("textarea");
-  const formImage = document.createElement("img");
-  const randomImageButton = document.createElement("button");
+  const setImageButton = document.createElement("div");
+  const setImageViewer = document.createElement("div");
+  const setImage = document.createElement("img");
+  const setImageContainer = document.createElement("div");
+  const uploadImageButton = document.createElement("div");
 
   let randomImageUrl = "";
   button.innerText = "등록하기";
-  randomImageButton.innerText = "random 지정!";
-  randomImageButton.addEventListener("click", async () => {
-    const res = await axios.get("https://api.unsplash.com/photos/random", {
-      params: {
-        client_id: UNSPLASH_ACCESSS_KEY,
-      },
-    });
-
+  setImageButton.classList.add(
+    "fas",
+    "fa-random",
+    "random-image-button",
+    "button"
+  );
+  uploadImageButton.classList.add(
+    "fas",
+    "fa-image",
+    "upload-image-button",
+    "button"
+  );
+  setImageButton.addEventListener("click", async () => {
+    const res = await randomImage();
     randomImageUrl = res.data.urls.small;
+    setImage.src = randomImageUrl;
     console.log("random image : ", randomImageUrl);
     const sendData = {
       title: formTitle.value,
       content: formContent.value,
       image: randomImageUrl,
     };
-    console.log(sendData);
   });
+  formTitle.classList.add("edit-post-title");
+  formTitle.placeholder = "title";
+  formContent.classList.add("edit-post-content");
+  formContent.placeholder = "content";
+  button.classList.add("submit-button");
 
-  form.append(formTitle, formContent, formImage, button);
-
+  form.append(formTitle, formContent, button);
+  form.classList.add("edit-post-form");
   button.href = "#";
   button.addEventListener("click", async (e) => {
     e.preventDefault();
@@ -40,19 +54,20 @@ function newPost() {
       content: formContent.value,
       image: randomImageUrl,
     };
-
-    //const img = res.urls.raws;
-    console.log(sendData);
-    await axios
-      .post(`${endPoint}/post`, sendData)
+    const res = await axiosConnection("post", "/post", sendData)
       .then((res) => {
         targetId = res.data.data.postId;
-        console.log(res);
       })
-      .catch((err) => console.log(err));
+      .catch((e) => console.log(e));
     window.location.href = `#/post/${targetId}`;
   });
-  newPostSection.append(form, randomImageButton);
+  newPostSection.classList.add("edit-post-section");
+  setImageContainer.classList.add("set-image-container");
+  setImageViewer.classList.add("set-image-viewer");
+  setImageViewer.append(setImage);
+  setImageContainer.append(setImageViewer, setImageButton, uploadImageButton);
+
+  newPostSection.append(setImageContainer, form);
   return newPostSection;
 }
 

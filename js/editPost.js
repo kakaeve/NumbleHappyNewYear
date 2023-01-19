@@ -1,4 +1,4 @@
-const endPoint = "http://43.201.103.199";
+import { axiosConnection } from "./axiosConnection.js";
 
 async function editPost(res) {
   const editPostSection = document.createElement("section");
@@ -6,33 +6,65 @@ async function editPost(res) {
   const button = document.createElement("a");
   const formTitle = document.createElement("input");
   const formContent = document.createElement("textarea");
-  const formImage = document.createElement("img");
   const backButton = document.createElement("a");
   const { title, content, image, postId } = res.data.data.post;
-  backButton.innerText = "뒤로가기";
-  backButton.href = `#/post/${postId}`;
+  const setImageButton = document.createElement("div");
+  const setImageViewer = document.createElement("div");
+  const setImage = document.createElement("img");
+  const setImageContainer = document.createElement("div");
+  const uploadImageButton = document.createElement("div");
+
+  setImage.src = image;
   button.innerText = "수정하기";
   button.href = "#";
   formTitle.value = title;
+  formTitle.classList.add("edit-post-title");
+  setImageButton.classList.add(
+    "fas",
+    "fa-random",
+    "random-image-button",
+    "button"
+  );
+  uploadImageButton.classList.add(
+    "fas",
+    "fa-image",
+    "upload-image-button",
+    "button"
+  );
   formContent.value = content;
-  formImage.src = image;
-
+  formContent.classList.add("edit-post-content");
+  form.classList.add("edit-post-form");
+  button.classList.add("submit-button");
   button.addEventListener("click", async (e) => {
     e.preventDefault();
     const sendData = {
       title: formTitle.value,
       content: formContent.value,
-      image: formImage.src,
+      image: setImage.src,
     };
-    await axios
-      .patch(`${endPoint}/post/${postId}`, sendData)
-      .then((res) => console.log(res))
-      .catch((err) => console.log(err));
+    const res = await axiosConnection("patch", `/post/${postId}`, sendData)
+      .then((res) => {})
+      .catch((e) => console.log(e));
     window.location.href = `#/post/${postId}`;
   });
+  setImageButton.addEventListener("click", async () => {
+    const res = await randomImage();
+    setImage.src = res.data.urls.small;
+    const sendData = {
+      title: formTitle.value,
+      content: formContent.value,
+      image: randomImageUrl,
+    };
+  });
 
-  form.append(formTitle, formContent, formImage, button);
-  editPostSection.append(backButton, form);
+  form.append(formTitle, formContent, button);
+  editPostSection.classList.add("edit-post-section");
+  setImageContainer.classList.add("set-image-container");
+  setImageViewer.classList.add("set-image-viewer");
+  setImageViewer.append(setImage);
+  setImageContainer.append(setImageViewer, setImageButton, uploadImageButton);
+
+  editPostSection.append(setImageContainer, form);
   return editPostSection;
 }
 

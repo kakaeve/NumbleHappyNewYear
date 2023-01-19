@@ -7,16 +7,19 @@ function navbar() {
   navTitle.innerText = "Happy new year";
   navTitle.classList.add("nav-bar-title");
   navTitle.href = "#";
-  backButton.innerText = "뒤로가기";
   backButton.addEventListener("click", () => {
     window.history.back();
   });
 
-  backButton.classList.add("button", "back-button");
+  backButton.classList.add("button", "back-button", "fas", "fa-arrow-left");
 
-  newPostButton.innerText = "새해인사하기";
   newPostButton.href = "#new";
-  newPostButton.classList.add("new-post-button", "button");
+  newPostButton.classList.add(
+    "new-post-button",
+    "button",
+    "fas",
+    "fa-plus-square"
+  );
   navbarContainer.classList.add("nav-bar-container");
   navbarContainer.append(backButton, navTitle, newPostButton);
   return navbarContainer;

@@ -1,9 +1,6 @@
 //const { default: axios } = require("axios");
 
 async function makeMainFeed(res) {
-  console.log(res);
-  //console.log(END_POINT);
-
   const mainFeedSection = document.createElement("section");
   const postListUl = document.createElement("ul");
   const viewToggleButton = document.createElement("button");
@@ -13,7 +10,6 @@ async function makeMainFeed(res) {
   mainFeedSection.classList.add("main-feed-section");
   postListUl.classList.add("post-list");
   postListUl.classList.add("card-view");
-  //postListUl.classList.add("list-view");
 
   for (let post of postList) {
     const img = document.createElement("img");
