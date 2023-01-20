@@ -3,7 +3,7 @@ const axios = require("axios");
 async function axiosConnection(method, url, data) {
   return await axios({
     method: method,
-    url: `${END_POINT}${url}`,
+    url: `${process.env.END_POINT}${url}`,
     data: data,
   });
 }
@@ -13,7 +13,7 @@ async function randomImage() {
     method: "get",
     url: "https://api.unsplash.com/photos/random",
     params: {
-      client_id: UNSPLASH_ACCESSS_KEY,
+      client_id: process.env.UNSPLASH_ACCESSS_KEY,
     },
   });
 }
