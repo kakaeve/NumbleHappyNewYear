@@ -47,7 +47,10 @@ module.exports = (env) => {
         //   ? JSON.stringify(process.env.UNSPLASH_ACCESSS_KEY)
         //   : "",
         // END_POINT: env.DEV ? JSON.stringify(process.env.END_POINT) : "",
-        "process.env": JSON.stringify(process.env),
+        "process.env.UNSPLASH_ACCESSS_KEY": JSON.stringify(
+          process.env.UNSPLASH_ACCESSS_KEY
+        ),
+        "process.env.END_POINT": JSON.stringify(process.env.END_POINT),
       }),
       new MiniCssExtractPlugin({
         linkType: false,
