@@ -43,10 +43,11 @@ module.exports = (env) => {
       }),
       new webpack.DefinePlugin({
         DEVLEOPMENT: env.DEV ? "true" : "false",
-        UNSPLASH_ACCESSS_KEY: env.DEV
-          ? JSON.stringify(process.env.UNSPLASH_ACCESSS_KEY)
-          : "",
-        END_POINT: env.DEV ? JSON.stringify(process.env.END_POINT) : "",
+        // UNSPLASH_ACCESSS_KEY: env.DEV
+        //   ? JSON.stringify(process.env.UNSPLASH_ACCESSS_KEY)
+        //   : "",
+        // END_POINT: env.DEV ? JSON.stringify(process.env.END_POINT) : "",
+        "process.env": JSON.stringify(process.env),
       }),
       new MiniCssExtractPlugin({
         linkType: false,

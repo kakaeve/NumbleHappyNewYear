@@ -1,4 +1,4 @@
-const axios = require("axios");
+//const axios = require("axios");
 
 const END_POINT = process.env.END_POINT;
 const UNSPLASH_ACCESSS_KEY = process.env.UNSPLASH_ACCESSS_KEY;

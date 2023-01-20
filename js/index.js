@@ -4,7 +4,7 @@ import { makeMainFeed } from "./home.js";
 import { navbar } from "./navBar.js";
 import { newPost } from "./newPost.js";
 import { axiosConnection } from "./axiosConnection.js";
-import "../style/home.css";
+//import "../style/home.css";
 
 const render = async () => {
   try {
