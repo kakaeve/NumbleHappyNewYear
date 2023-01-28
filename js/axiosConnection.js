@@ -3,8 +3,6 @@ const axios = require("axios");
 const END_POINT = process.env.END_POINT;
 const UNSPLASH_ACCESSS_KEY = process.env.UNSPLASH_ACCESSS_KEY;
 
-console.log("end: ", END_POINT);
-console.log("api:", UNSPLASH_ACCESSS_KEY);
 async function axiosConnection(method, url, data) {
   return await axios({
     method: method,
@@ -17,6 +15,7 @@ async function randomImage() {
   return await axios({
     method: "get",
     url: "https://api.unsplash.com/photos/random",
+    headers: { "Content-Security-Policy-Report-Only": "default-src https:" },
     params: {
       client_id: UNSPLASH_ACCESSS_KEY,
     },

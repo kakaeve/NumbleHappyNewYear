@@ -7,9 +7,11 @@ const dotenv = require("dotenv");
 module.exports = (env) => {
   const { DEV } = env;
   if (DEV) {
+    console.log("dev");
     dotenv.config({ path: "./dev.env" });
   } else {
-    dotenv.config({ path: "./env" });
+    console.log("env");
+    dotenv.config({ path: "./.env" });
   }
 
   return {
@@ -18,6 +20,7 @@ module.exports = (env) => {
     output: {
       filename: "main.js",
       path: `${__dirname}/dist`,
+      clean: true,
     },
     devServer: {
       port: 9000,
