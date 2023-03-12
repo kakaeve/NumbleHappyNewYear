@@ -1,0 +1,1 @@
+export const aBackButon = '<i class="fa-solid fa-backward"></i>';

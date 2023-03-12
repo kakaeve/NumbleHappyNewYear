@@ -1,7 +1,13 @@
-const axios = require("axios");
+//const axios = require("axios");
 
-const END_POINT = process.env.END_POINT;
-const UNSPLASH_ACCESSS_KEY = process.env.UNSPLASH_ACCESSS_KEY;
+// const END_POINT = process.env.END_POINT;
+// const UNSPLASH_ACCESSS_KEY = process.env.UNSPLASH_ACCESSS_KEY;
+
+const END_POINT = "http://numblehappynewyearserver-default-rtdb.firebaseio.com/"
+const UNSPLASH_ACCESSS_KEY = 'AuK9RkFBKsBrqWlY59_A7YApuJkzgxnm5USdMzq5Ang'
+const headers = {
+
+}
 
 async function axiosConnection(method, url, data) {
   return await axios({

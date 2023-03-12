@@ -1,6 +1,7 @@
 //const { default: axios } = require("axios");
 
 async function makeMainFeed(res) {
+  console.log("Home")
   const mainFeedSection = document.createElement("section");
   const postListUl = document.createElement("ul");
   const viewToggleButton = document.createElement("button");
