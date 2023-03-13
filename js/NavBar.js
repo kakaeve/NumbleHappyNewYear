@@ -1,5 +1,5 @@
 import Button from "./UI/Button.js"
-import {aBackButon} from './UI/fontAwesome.js'
+import {aBackButon, aNewButton} from './UI/fontAwesome.js'
 
 export default function NavBar({$target}) {
     this.$navBar = document.createElement('nav')
@@ -7,7 +7,7 @@ export default function NavBar({$target}) {
     this.$backButton = new Button({$target:this.$navBar,url:'javascript:window.history.back()', insertClassList:['back-button'],icon:aBackButon})
     this.title = document.createElement('h1')
     this.$navBar.append(this.title)
-    this.$newPostButton = new Button({$target:this.$navBar,url:'#new', insertClassList:['new-button'],icon:'<i class="fa-solid fa-forward"></i>'})
+    this.$newPostButton = new Button({$target:this.$navBar,url:'#new', insertClassList:['new-button'],icon:aNewButton})
     
 
     $target.append(this.$navBar)
